@@ -5,17 +5,24 @@ import axios from 'axios'
   providedIn: 'root'
 })
 export class UserDataPostService {
-  
-
-  constructor() { }
 
   async postUserData(url: string, data: any): Promise<any> {
     try {
       const response = await axios.post(url, data)
-      console.log(response['data'])
+      return response['data']
     }
     catch(error: any) {
-      console.log(error)
+      console.log(error);
+    }
+  }
+
+  async getBenefits(url: string): Promise<any> {
+    try {
+      const response = await axios.get(url)
+      return response.data
+    }
+    catch(error: any) {
+      console.log(error);
     }
   }
 }

@@ -1,11 +1,14 @@
-<h1>{{title}}</h1>
-<input type="file" (change)="onFileUpload($event)"/>
-<app-loader></app-loader>
-<ul>
-    <li *ngFor="let data of testData">
-        <p>{{data.Name}}</p>
-        <p>{{data.Number}}</p>
-        <p>{{data.Gender}}</p>
-        <p>{{data.Age}}</p>
-    </li>
-</ul>
+<div class="bg-slate-300 min-h-screen p-4 flex flex-col gap-8 items-start">
+    <app-quote-form-group (sendFormData)="combineCompanyDetails($event)"></app-quote-form-group>
+    <div>
+        <h1 class="mb-2 text-slate-950">Upload employee data</h1>
+        <input type="file" (change)="onFileUpload($event)"/>
+    </div>
+
+    <app-benefits-lists (sendingData)="combinePostData($event)"></app-benefits-lists>
+    <app-loader *ngIf="isLoading"></app-loader>
+    <button *ngIf="!isLoading" class="mt-4 bg-blue-950 text-white rounded-full px-4 py-2 cursor-pointer" (click)="submitData()">Submit</button>
+    <div *ngIf="premiumCalculated > 0" class="p-4 bg-slate-400 border-slate-800 border-4">
+        <p class="font-bold text-blue-950">Premium amount is: {{premiumCalculated}}/-</p>
+    </div>
+</div>

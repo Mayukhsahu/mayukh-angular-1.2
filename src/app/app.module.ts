@@ -1,20 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { NgxSpinnerModule } from 'ngx-spinner';
-
 import { AppComponent } from './app.component';
-import { UserDataPostService } from './user-data-post.service';
+import { BenefitsListsComponent } from './benefits-lists/benefits-lists.component';
 import { LoaderComponent } from './loader/loader.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { QuoteFormGroupComponent } from './quote-form-group/quote-form-group.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoaderComponent
+    BenefitsListsComponent,
+    LoaderComponent,
+    QuoteFormGroupComponent
   ],
   imports: [
     BrowserModule,
-    NgxSpinnerModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
